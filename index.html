@@ -14,7 +14,7 @@
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id),bc=$('buildCanvas'),fc=$('flightCanvas'),pc=$('previewCanvas'),ctx=bc.getContext('2d'),fctx=fc.getContext('2d'),pctx=pc.getContext('2d');
-const catalog=[['core','Command core','▣','#b9cce0',8,0,'core'],['hull','Hull block','■','#8799ad',5,0,'hull'],['wing','Wing panel','◢','#69c7f4',4,0,'wing'],['engine','Jet engine','◉','#ffae65',12,900,'engine'],['rocket','Rocket motor','✦','#ff795f',16,1800,'engine'],['fuel','Fuel tank','▤','#a99bfa',10,0,'fuel'],['cockpit','Cockpit','⬡','#91e4f0',6,0,'cockpit'],['wheel','Landing gear','⊥','#c5d0db',5,0,'wheel'],['parachute','Parachute','☂','#ff9eaa',3,0,'chute'],['separator','Decoupler','⧖','#f0ce79',4,0,'sep']];
+const catalog=[['core','Command core','▣','#b9cce0',8,0,'core'],['hull','Hull block','■','#8799ad',5,0,'hull'],['wing','Wing panel','◢','#69c7f4',4,0,'wing'],['engine','Jet engine','◉','#ffae65',12,900,'engine'],['rocket','Rocket motor','✦','#ff795f',16,1800,'engine'],['fuel','Fuel tank','▤','#a99bfa',10,0,'fuel'],['cockpit','Cockpit','⬡','#91e4f0',6,0,'cockpit'],['wheel','Landing gear','⊥','#c5d0db',5,0,'wheel'],['tail','Tail fin','△','#b9f27b',3,0,'hull'],['parachute','Parachute','☂','#ff9eaa',3,0,'chute'],['separator','Decoupler','⧖','#f0ce79',4,0,'sep']];
 const data=Object.fromEntries(catalog.map(p=>[p[0],p]));let craft=[],selected='core',tool='place',rot=0,cam={x:0,y:0},unit=32,mouse={x:0,y:0},drag=null,history=[],flight=null,keys={},paused=false,credits=250,upgrade=0,toastTimer,last=0,previewTime=0;
 try{let save=JSON.parse(localStorage.getItem('air-sandbox')||'{}');craft=save.craft||[];credits=save.credits??credits;upgrade=save.upgrade||0}catch(e){}
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
